@@ -1,0 +1,19 @@
+{
+  "name": "rails-docker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yukiorita1117/rails-docker.git"
+  },
+  "author": "yukio",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yukiorita1117/rails-docker/issues"
+  },
+  "homepage": "https://github.com/yukiorita1117/rails-docker#readme"
+}
