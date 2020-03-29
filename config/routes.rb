@@ -3,5 +3,6 @@ Rails.application.routes.draw do
 
   # rootはlocalhost:3000にアクセスが来た際のルーティングを指す。
   # 今回はlocalhost:3000mのアクセスが来たらBoardsControllerクラスのindexメソッドを実行するように定義。
-  root "boards#index"
+  get 'boards', to: "boards#index"
+  get 'boards/new', to: "boards#new"
 end
