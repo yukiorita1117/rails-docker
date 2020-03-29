@@ -35,6 +35,7 @@
   `docker-compose down`
 
 - server.pid ファイルが残ってしまう場合の対処
+
   ctrl + C で強制的にコンテナを止め、`docker-compose up`を行うと`server.pid`が残り、warning が出る。
   そのため`-d`をつけて行うか、もしくは `docker-compose up` の後に`rm tmp/pids/server.pid`で pid ファイルを削除する。
 
