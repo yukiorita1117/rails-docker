@@ -2,6 +2,8 @@
 class BoardsController < ApplicationController
     # BoardsControllerのindexアクションという(メソッドでもある)
     def index
+        # 全件取得 TODO(orita)あとで件数取得を制限する
+        @board = Board.all
     end
 
     def new
