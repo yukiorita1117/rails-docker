@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   # 今回はlocalhost:3000mのアクセスが来たらBoardsControllerクラスのindexメソッドを実行するように定義。
   get 'boards', to: "boards#index"
   get 'boards/new', to: "boards#new"
+  post 'boards', to: "boards#create"
 end
