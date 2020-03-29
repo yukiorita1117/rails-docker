@@ -6,6 +6,6 @@ class BoardsController < ApplicationController
 
     def new
         # Boardモデルのオブジェクトを作成.インスタンス変数に格納しviewで使えるようにする。
-        @boards = Board.new
+        @board = Board.new
     end
 end
