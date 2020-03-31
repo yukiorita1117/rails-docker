@@ -41,3 +41,8 @@
 
 - Gemfile にパッケージを追加した際
   `docker-compose build`
+
+- Rails の config 修正について
+
+  initializers 等を変更したら、コンテナは止め、`docker-compose up`で再起動する。
+  また、コンテナは rails の記述ミスでも死ぬので注意する。
