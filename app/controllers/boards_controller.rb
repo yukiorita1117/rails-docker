@@ -17,6 +17,10 @@ class BoardsController < ApplicationController
         # binding pry
     end
 
+    def show
+        binding pry
+    end
+
     private
     def board_params
         params.require(:board).permit(:name,:title,:body)
