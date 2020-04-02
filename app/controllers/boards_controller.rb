@@ -18,7 +18,9 @@ class BoardsController < ApplicationController
     end
 
     def show
-        binding pry
+        # idに対応するBoardオブジェクトを取得できる
+        @board = Board.find(params[:id])
+        # binding pry
     end
 
     private
