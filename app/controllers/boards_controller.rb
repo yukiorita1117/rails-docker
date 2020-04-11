@@ -23,6 +23,20 @@ class BoardsController < ApplicationController
         # binding pry
     end
 
+    def edit
+        # インスタンス変数に格納してあげる
+        @board = Board.find(params[:id])
+    end
+
+    def update
+        board = Board.find(params[:id])
+        # boardのparamsを書き換える
+        board.update(board_params)
+
+        # redirect_toメソッドでリダイレクトさせる。特定のmodelのオブジェクト指定にする書き方「/boards/:id」のパスになる。
+        redirect_to board
+    end
+
     private
     def board_params
         params.require(:board).permit(:name,:title,:body)
