@@ -1,5 +1,8 @@
 # ApplicationContorollerを継承する事でcontorollerとしての役割を持てるっては話
 class BoardsController < ApplicationController
+
+    before_action :set_target_board, only: %i[show edit update destroy]
+
     # BoardsControllerのindexアクションという(メソッドでもある)
     def index
         # 全件取得 TODO(orita)あとで件数取得を制限する
@@ -21,19 +24,18 @@ class BoardsController < ApplicationController
 
     def show
         # idに対応するBoardオブジェクトを取得できる
-        @board = Board.find(params[:id])
+        # before_actionがあるので @board = Board.find(params[:id]) の記載は不要
         # binding pry
     end
 
     def edit
         # インスタンス変数に格納してあげる
-        @board = Board.find(params[:id])
+        # before_actionがあるので @board = Board.find(params[:id]) の記載は不要
     end
 
     def update
-        board = Board.find(params[:id])
         # boardのparamsを書き換える
-        board.update(board_params)
+        @board.update(board_params)
 
         # redirect_toメソッドでリダイレクトさせる。特定のmodelのオブジェクト指定にする書き方「/boards/:id」のパスになる。
         redirect_to board
@@ -42,8 +44,7 @@ class BoardsController < ApplicationController
     # 注意：destroyとい関数名はresourcesbase routingにとってはすでに決められた予約語なのでタイポするとエラーでる。
     # もしくはconfig/routeに書くかどっちか。
     def destroy
-        board = Board.find(params[:id])
-        board.delete
+        @board.delete
 
         redirect_to boards_path
     end
@@ -52,4 +53,8 @@ class BoardsController < ApplicationController
     def board_params
         params.require(:board).permit(:name,:title,:body)
     end
+
+    def set_target_board
+        @board = Board.find(params[:id])
+      end
 end
