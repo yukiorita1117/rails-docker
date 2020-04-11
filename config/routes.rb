@@ -9,6 +9,6 @@ Rails.application.routes.draw do
   # get 'boards/:id', to: "boards#show"
 
   # resourcesbase routingを使うと全てのrouteを最初から作れる。
-  resources :boards,only: [:index, :new, :creaste, :show, :edit, :update]
+  resources :boards
 
 end

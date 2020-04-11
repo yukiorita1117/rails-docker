@@ -13,8 +13,10 @@ class BoardsController < ApplicationController
     end
 
     def create
-        Board.create(board_params)
+        board = Board.create(board_params)
         # binding pry
+        # createした時点でBoardオブジェクトはidを付与され存在している。そこへリダイレクトさせる。
+        redirect_to board
     end
 
     def show
@@ -35,6 +37,15 @@ class BoardsController < ApplicationController
 
         # redirect_toメソッドでリダイレクトさせる。特定のmodelのオブジェクト指定にする書き方「/boards/:id」のパスになる。
         redirect_to board
+    end
+
+    # 注意：destroyとい関数名はresourcesbase routingにとってはすでに決められた予約語なのでタイポするとエラーでる。
+    # もしくはconfig/routeに書くかどっちか。
+    def destroy
+        board = Board.find(params[:id])
+        board.delete
+
+        redirect_to boards_path
     end
 
     private
